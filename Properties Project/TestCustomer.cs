@@ -10,7 +10,7 @@ namespace Properties_Project
         {
             static void Main()
             {
-                Customer obj = new Customer(101, false, "John", 5000.0);
+                Customer obj = new Customer(101, false, "John", 5000.0,Cities.Begaluru,"Karnataka"," INDIA");
                 Console.WriteLine("Customer ID " + obj.CustID);
 
                 //obj.CustID = 102; // Cant assigned as the property is read only if we dont set the value
@@ -54,11 +54,28 @@ namespace Properties_Project
 
                 obj.Balance = obj.Balance - 1400; //Assignment Succeeds, so prints new balance
                 Console.WriteLine(" balance when assignment succeeds : " + obj.Balance);
-            }
+
+            Console.BackgroundColor = ConsoleColor.Green;
+
+            Console.WriteLine("Current City: " + obj.City);
+            obj.City = Cities.Hyderabad;
+            Console.WriteLine("Modified city: " + obj.City);
+
+            Console.WriteLine("Current state : " + obj.State);
+            // obj.State = "Telangana"; //Invalid beacuase current class is not a child class of Customer
+            Console.WriteLine("Modified state: " + obj.State);
+
+            Console.WriteLine(" Country : " + obj.Country);
+
+            /*&Console.WriteLine("Current City" + obj.City);
+            obj.City = "Pune";
+            Console.WriteLine("Modified City : " + obj.City); //assigned success . so below city will be modified to pune as the status is true and city is in the list of allowed cities
+             obj.City = "Delhi";
+            Console.WriteLine("Modified City : " + obj.City); //assigned failed . so below city will not be modified to delhi as the status is true but city is not in the list of allowed cities
+            Console.ReadLine();*/
+        }
         }
     }
 
-    internal class TestCustomer
-    {
-    }
+  
 
